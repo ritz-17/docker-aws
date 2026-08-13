@@ -31,9 +31,7 @@ app.get("/health", (req, res) => {
     })
 })
 
-// Catch-all for client-side routing (SPA fallback)
-// Using app.use() instead of a wildcard path pattern avoids
-// path-to-regexp version incompatibilities between Express 4/5.
+
 app.use((req, res) => {
     res.sendFile(path.join(staticDir, "index.html"), (err) => {
         if (err) {
